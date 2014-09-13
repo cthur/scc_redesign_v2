@@ -1,0 +1,189 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function () {
+
+    var dates = $("#event_start, #event_end").datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      onSelect: function (selectedDate) {
+        var option = this.id == "event_start" ? "minDate" : "maxDate",
+            instance = $(this).data("datepicker"),
+            date = $.datepicker.parseDate(
+                instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings
+            );
+        dates.not(this).datepicker("option", option, date);
+      }
+    });
+
+    $eventCalendar = $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      events: [
+        <% @events.each do |event| %>
+        {
+          title: "<%= event.title %>",
+          start: "<%= event.start_date%>",
+          end:   "<%= event.end_date%>",
+          allDay: <%= event.all_day %>,
+          url: "<%= event_path(event) %>"
+        },
+        <% end %>
+      ],
+      select: function (start, end, allDay) {
+        $('#event_start').datepicker("setDate", new Date(start));
+        $('#event_end').datepicker("setDate", new Date(end));
+        $('#new_event_dialog').dialog('open');
+      },
+      eventClick: function (calEvent, jsEvent, view) {
+        $('#event_start').datepicker("setDate", new Date(calEvent.start));
+        $('#event_end').datepicker("setDate", new Date(calEvent.end));
+        $('#new_event_dialog #event_title').val(calEvent.title);
+        $('#new_event_dialog #allday').val([calEvent.className == "gbcs-halfday-event" ? "1" : "2"]).prop('checked', true);
+        $("#new_event_dialog").dialog("option", "buttons", [{
+          text: "Save",
+          click: function () {
+            $(this).dialog("close");
+          }
+        }, {
+          text: "Delete",
+          click: function () {
+            $(this).dialog("close");
+          }
+        }, {
+          text: "Cancel",
+          click: function () {
+            $(this).dialog("close");
+          }
+        }]);
+        $("#new_event_dialog").dialog("option", "title", "Edit Event");
+        $('#new_event_dialog').dialog('open');
+      }
+
+    });
+
+    var title = $('#event_title');
+    var start = $('#event_start');
+    var end = $('#event_end');
+    var description = $('#event_description');
+
+    var eventClass, color;
+    $('#new_event_dialog').dialog({
+      resizable: false,
+      autoOpen: false,
+      title: 'Add Event',
+      width: 400,
+      buttons: {
+        Save: function () {
+
+          if (title.val() !== '') {
+            $.ajax({
+              type: "POST",
+              url: "<%= events_path %>", // should be mapped in routes.rb
+              data: {
+                title: title.val(),
+                start_date: start.val(),
+                end_date: end.val(),
+                description: description.val(),
+                all_day: false,
+                repeating: false
+              },
+              datatype: "html", // check more option
+              success: function(data) {
+
+              },
+              async:   true
+            });
+
+            $eventCalendar.fullCalendar('renderEvent', {
+                  title: title.val(),
+                  start: start.val(),
+                  end: end.val(),
+                  allDay: false,
+                  className: eventClass,
+                  color: color
+                }, true // make the event "stick"
+            );
+          }
+
+          $eventCalendar.fullCalendar('unselect');
+          $(this).dialog('close');
+        },
+        Cancel: function () {
+          $(this).dialog('close');
+        }
+      }
+    });
+  });
+
+</script>
+
+
+<div class="container" id='main_content'>
+    <!-- Example row of columns -->
+    <div class="row events">
+        <div class="col-md-12">
+            <h2><%= link_to "Events", events_path %></h2>
+          <% if user_signed_in? %>
+          <%= link_to 'New Event', new_event_path %>
+          <% end %>
+        </div>
+      <div id='calendar'></div>
+    </div>
+
+  <div id="new_event_dialog">
+    <form>
+      <fieldset>
+        <div class="field form-group">
+          <label for="event_title">Title</label><br />
+          <input type="text" name="event_title" id="event_title" />
+        </div>
+        <br>
+
+        <div class="field form-group">
+          <label for="event_start">Start Date</label><br />
+          <input type="text" name="event_start" id="event_start" />
+        </div>
+        <br>
+
+        <div class="field form-group">
+          <label for="event_end">End Date</label><br />
+          <input type="text" name="event_end" id="event_end" />
+        </div>
+        <br>
+
+        <div class="field form-group">
+          <label for="event_description">Description</label><br />
+          <textarea id="event_description"></textarea>
+        </div>
+        <br>
+
+        <div class="field checkbox">
+          <input type="checkbox" id="allday" name="allday" value="2"><label for="allday">All Day</label>
+        </div>
+
+        <div class="field checkbox">
+          <input type="checkbox" id="repeating" name="repeating" value="2"><label for="repeating">Repeating</label>
+        </div>
+
+        <label for="event_type">Event Type</label><br />
+        <select id="event_type">
+          <option value="general">General</option>
+          <option value="holiday">Holiday</option>
+          <option value="dead_day">Dead Day</option>
+          <option value="workday">Faculty Workday</option>
+          <option value="finals">Finals</option>
+        </select>
+
+      </fieldset>
+    </form>
+  </div>
+</div> <!-- /container -->
+

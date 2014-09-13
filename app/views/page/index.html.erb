@@ -1,0 +1,95 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=223560721173562";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="featured">
+    <%= image_tag("img1.jpg") %>
+    <%= image_tag("img2.jpg") %>
+    <%= image_tag("img3.jpg") %>
+    <%= image_tag("img4.jpg") %>
+    <%= image_tag("img5.jpg") %>
+    <%= image_tag("img6.jpg") %>
+    <%= image_tag("img7.jpg") %>
+    <%= image_tag("img8.jpg") %>
+    <%= image_tag("img9.jpg") %>
+    <%= image_tag("img10.jpg") %>
+    <!--<img  src="images/img1.jpg" alt=""/>
+    <img  src="images/img2.jpg" alt=""  />
+    <img  src="images/img3.jpg" alt="" />
+    <img  src="images/img4.jpg" alt=""/>
+    <img  src="images/img5.jpg" alt=""  />
+    <img  src="images/img6.jpg" alt="" />
+    <img  src="images/img7.jpg" alt=""/>
+    <img  src="images/img8.jpg" alt=""  />
+    <img  src="images/img9.jpg" alt="" />
+    <img  src="images/img10.jpg" alt="" />-->
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<div class="container" id='main_content'>
+    <!-- Example row of columns -->
+    <div class="row events">
+        <div class="col-md-12">
+            <h2><%= link_to "Events", events_path %></h2>
+          <div id="event_listing">
+
+            <table id="event_min" class="display" data-source="<%= events_url(format: "json") %>">
+              <thead>
+              <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <!--<th>Start time</th>
+                <th>End time</th>-->
+                <th>Description</th>
+
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @events.each do |event| %>
+                  <tr>
+                    <td><%= link_to event.title, event %></td>
+                    <td><%= event.start_date %></td>
+                    <!--          <td><%#= event.start_time %></td>
+          <td><%#= event.end_time %></td>-->
+                    <td><%= event.description.truncate(100).html_safe %></td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+            <br>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="social_media_feeds row">
+        <div class="col-md-4">
+          <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+          <script type="IN/MemberProfile" data-id="www.linkedin.com/pub/mobile-gurus/92/3a8/b58" data-format="inline"></script>
+        </div>
+        <div class="col-md-4">
+          <a class="twitter-timeline"  href="https://twitter.com/MobileGurus2014"  data-widget-id="442813729239863296">Tweets by @MobileGurus2014</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+        <div class="col-md-4">
+          <div class="fb-like-box" data-href="https://www.facebook.com/pages/Mobile-Gurus/607578052652223" data-height="300px" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="true"></div>
+        </div>
+    </div>
+
+<div id="social_media">
+  <p>Follow us on:</p>
+  <a href="https://twitter.com/MobileGurus2014"><%= image_tag('twitter_icon.png') %></a>
+  <a href="https://www.facebook.com/profile.php?id=100007927393029"><%= image_tag('facebook_icon.png') %></a>
+  <a href="http://www.linkedin.com/pub/mobile-gurus/92/3a8/b58/"><%= image_tag('linkedin_icon.png') %></a>
+  <a href="https://plus.google.com/u/1/108175910528028382522/posts?cfem=1&partnerid=gplp0"><%= image_tag('googleplus_icon.png') %></a>
+</div>
+</div> <!-- /container -->
+

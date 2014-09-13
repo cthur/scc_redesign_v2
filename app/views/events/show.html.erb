@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<div id="event_page">
+
+  <p>
+    <strong><%= @event.title %></strong>
+  </p>
+
+  <p>
+    Start date:
+    <%= @event.start_date %>
+  </p>
+
+  <p>
+    End date:
+    <%= @event.end_date %>
+  </p>
+  <p>
+    All day:
+    <% if @event.all_day %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+  </p>
+
+  <p>
+    Repeating:
+    <% if @event.repeating %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+  </p>
+
+<!--  <p>
+    <strong>Start time:</strong>
+    <%#= @event.start_time %>
+  </p>
+
+  <p>
+    <strong>End time:</strong>
+    <%#= @event.end_time %>
+  </p>-->
+
+  <p id="event_description">
+    <%= @event.description %>
+  </p>
+
+
+
+<!--  <p>
+    <strong>Url:</strong>
+    <%#= @event.url %>
+  </p>
+
+  <p>
+    <strong>Type:</strong>
+    <%#= @event.type %>
+  </p>-->
+  <% if user_signed_in? %>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <% end %>
+  <%= link_to 'Back', '/index.html' %>
+
+</div>

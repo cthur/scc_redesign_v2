@@ -1,0 +1,28 @@
+
+
+<div class="staff_container">
+  <h2>Staff Directory</h2>
+
+  <table id="directory" class="display" data-source="<%= staffs_url(format: "json") %>">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Division</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @staffs.each do |member| %>
+      <tr>
+        <td><%= link_to(member.first_name + ' ' + member.last_name, member) %></td>
+        <td><%= member.phone %></td>
+        <td><%= member.email %></td>
+        <td><%= member.division %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+

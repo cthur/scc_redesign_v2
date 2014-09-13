@@ -1,0 +1,142 @@
+<div id="top-nav" class="masthead top-color navbar-collapse collapse">
+<ul class="nav nav-justified">
+  <li class="active"><%= link_to "Home", root_path %></li>
+  <li><a href="http://www.scc.spokane.edu/?alumni">Alumni</a></li>
+  <li><a href="http://www.ccs.spokane.edu/Community-Resources.aspx">Community</a></li>
+  <li><a href="http://www.scc.spokane.edu/?currentstudents">Current Students</a></li>
+  <li><a href="http://www.scc.spokane.edu/?wecsemployers">Employers</a></li>
+  <li><a href="<%= staffs_url %>" class="faculty"><span></span></a></li>
+  <li><a href="http://www.scc.spokane.edu/?prospectivestudents">Future Students</a></li>
+
+</ul>
+</div>
+
+<div id="background">
+  <ul id="menu">
+    <li><%= link_to "", root_path, class:"home" %><span></span></li>
+    <li><a href="http://www.scc.spokane.edu/?alumni" class="portfolio"><span></span></a></li>
+    <li><a href="http://www.ccs.spokane.edu/Community-Resources.aspx" class="community"><span></span></a></li>
+    <li><a href="http://www.scc.spokane.edu/?currentstudents" class="current"><span></span></a></li>
+    <li><a href="http://www.scc.spokane.edu/?wecsemployers" class="employers"><span></span></a></li>
+    <li><a href="<%= staffs_url %>" class="faculty"><span></span></a></li>
+    <li><a href="http://www.scc.spokane.edu/?prospectivestudents" class="future"><span></span></a></li>
+  </ul>
+</div>
+
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="scc_logo">
+        <%= link_to(image_tag('CCSLogo-Off.jpg', alt: 'CCS Logo'), '#', class: 'navbar-brand') %>
+      </div>
+    </div>
+    <div class="oval">
+      <h2>Spokane Community College</h2>
+      <h2>SCC</h2>
+    </div>
+
+    <div class="navbar">
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown border_bottom">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About SCC</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Mission/Theme', 'http://www.scc.spokane.edu/?sccmission' %></li>
+            <li><%= link_to 'Administration', 'http://www.scc.spokane.edu/?aboutadmin ' %></li>
+            <li><%= link_to "Campus Tours", 'http://www.scc.spokane.edu/?tours'  %></li>
+            <li><%= link_to 'Student Activities', 'http://www.scc.spokane.edu/?stact' %></li>
+            <li><%= link_to 'Student Ambassadors', 'http://www.scc.spokane.edu/?ambassadors' %></li>
+            <li>
+              <%= link_to 'Maps/Calendars', '#' %>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Maps', 'http://www.scc.spokane.edu/?maps' %></li>
+                <li><%= link_to 'Academic Calendars', 'http://www.ccs.spokane.edu/Catalog---Schedule.aspx' %></li>
+                <li><%= link_to 'Final Exam Schedule', 'http://www.scc.spokane.edu/?finals' %></li>
+                <li><%= link_to 'Important Dates', 'http://www.scc.spokane.edu/?impdates' %></li>
+                <li><%= link_to 'Events Calendar', calendar_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Fast Facts', 'http://www.scc.spokane.edu/?irglance' %></li>
+            <li><%= link_to 'Library Information', 'http://www.scc.spokane.edu/?ist' %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown border_bottom">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Book Store', 'http://www.scc.spokane.edu/?bookstore' %></li>
+            <li><%= link_to 'Tutoring', 'http://www.scc.spokane.edu/?artscitutor' %></li>
+            <li><%= link_to 'Counseling', 'http://www.scc.spokane.edu/?couns' %></li>
+            <li><%= link_to 'Transfer Counseling', 'http://sites.scc.spokane.edu/Transfer/' %></li>
+            <li><%= link_to 'Head Start Child Care', 'http://www.scc.spokane.edu/?childcare' %></li>
+            <li><%= link_to 'Multicultural Student Services', 'http://www.scc.spokane.edu/?multicultural' %></li>
+            <li><%= link_to 'Veteran Affairs', 'http://www.scc.spokane.edu/?vetaffairs' %></li>
+            <li><%= link_to 'Disability Support Services', 'http://www.scc.spokane.edu/?dss' %></li>
+            <li><%= link_to 'Student Health Clinic', 'http://www.scc.spokane.edu/?healthcenter' %></li>
+            <li><%= link_to 'Emergency Services', 'http://www.scc.spokane.edu/?emergency' %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown border_bottom">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses & Programs</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Courses', 'http://catalog.spokane.edu/CoursesAndPrograms/' %></li>
+            <li><%= link_to 'eLearning', 'http://ccsonline.spokane.edu/' %></li>
+            <li><%= link_to 'Learning Communities', 'http://www.scc.spokane.edu/?learningcommunities/' %></li>
+            <li><%= link_to 'Running Start', 'http://sites.scc.spokane.edu/RS/' %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown border_bottom">
+          <a href="https://www.scc.spokane.edu/?stsrv" class="dropdown-toggle" data-toggle="dropdown">Admissions/Registration</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Apply for Admission', 'http://www.scc.spokane.edu/?oladmiss' %></li>
+            <li><%= link_to 'Tuition Installment Plan', 'http://www.scc.spokane.edu/?tipp' %></li>
+            <li>
+              <%= link_to 'Requirements', '#' %>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Academic Standards/Workshops', 'www.scc.spokane.edu/?acadstandards' %></li>
+                <li><%= link_to 'Articulation (H.S.)', 'http://www.ccs.spokane.edu/getdoc/45bd382a-8ce1-4dc6-ae22-346d709e0e73/SCC.aspx' %></li>
+                <li><%= link_to 'Articulation (Univ.)', 'http://www.ccs.spokane.edu/getdoc/327e6b15-a7b6-4536-a144-6ed3e1154a1a/University-articulations.aspx' %></li>
+                <li><%= link_to 'Forms', 'http://www.ccs.spokane.edu/getdoc/335d3408-4f0f-4b26-8a43-0403178000ff/Forms.aspx' %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'General Information', 'http://www.scc.spokane.edu/?enroll' %></li>
+            <li><%= link_to 'Placement Testing', 'http://www.scc.spokane.edu/?testing' %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="http://www.scc.spokane.edu/?stuoverview" class="dropdown-toggle" data-toggle="dropdown">Student Resources</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'myBigfoot Portal', 'https://mybigfoot.spokane.edu/' %></li>
+            <li><%= link_to 'Financial Aid', 'http://www.scc.spokane.edu/?finaid' %></li>
+            <li><%= link_to 'Student and Career Services', 'http://www.scc.spokane.edu/?sscs' %></li>
+            <li><%= link_to 'Check a Class', 'https://secure.scc.spokane.edu/wts/info/waci006.htmlz' %></li>
+            <li><%= link_to 'Change Your Address', 'https://secure.scc.spokane.edu/wts/sa/' %></li>
+            <li>
+              <%= link_to 'PIN', '#' %>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Change Your PIN', 'https://secure.scc.spokane.edu/wts/info/pinchg.html' %></li>
+                <li><%= link_to 'Request Your PIN', 'https://www.scc.spokane.edu/?pinreq' %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Scholarships', 'http://www.ccs.spokane.edu/Foundation/' %></li>
+            <li><%= link_to 'Transcript', 'https://secure.scc.spokane.edu/wts/info/waci002.html' %></li>
+            <li><%= link_to '1098-T Tax Credit', 'https://secure.scc.spokane.edu/wts/hope/' %></li>
+            <li><%= link_to 'Verify Enrollment', 'https://secure.scc.spokane.edu/studentselfservice/' %></li>
+            <li><%= link_to 'Office 365', 'https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=3&ct=1392228024&rver=6.1.6206.0&wp=MBI_KEY&wreply=https:%2F%2Fwww.outlook.com%2Fowa%2F&id=260563&CBCXT=out' %></li>
+            <li><%= link_to 'Department Info', 'http://www.scc.spokane.edu/?divdept' %></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+
+  </div>
+</div>

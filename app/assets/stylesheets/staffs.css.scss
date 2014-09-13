@@ -1,0 +1,74 @@
+// Place all the styles related to the Staffs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a{
+  color: black;
+}
+.staff_container {
+  background-color: #eee;
+  width: 80%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #fc0;
+
+  h2 {
+    text-align: center;
+  }
+
+  .pagination {
+    a {
+      color: #000000;
+    }
+
+    .active a {
+      color: #ffffff;
+    }
+
+    .prev.disabled a {
+      color: #999999;
+    }
+
+    .next.disabled a {
+      color: #999999;
+    }
+  }
+}
+
+#directory_length {
+  width: 50%;
+}
+
+#directory_filter {
+  width: 75%;
+}
+
+#directory {
+  thead tr {
+    :first-child {
+    border-top-left-radius: 10px;
+    }
+
+    :last-child {
+      border-top-right-radius: 10px;
+    }
+
+    th {
+      background-color: #0058a8;
+      color: #fff;
+    }
+  }
+
+
+  td {
+    a{
+      font-weight: bold;
+      color: #000000;
+    }
+  }
+}
+
+#directory_info {
+  margin-top: 20px;
+}

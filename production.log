@@ -1,0 +1,17 @@
+I, [2014-02-27T00:12:50.594616 #14793]  INFO -- : Started GET "/events" for 67.185.0.55 at 2014-02-27 00:12:50 +0000
+I, [2014-02-27T00:12:50.607032 #14793]  INFO -- : Processing by EventsController#index as HTML
+I, [2014-02-27T00:12:50.663015 #14793]  INFO -- :   Rendered events/index.html.erb within layouts/application (30.3ms)
+I, [2014-02-27T00:12:50.663287 #14793]  INFO -- : Completed 500 Internal Server Error in 56ms
+F, [2014-02-27T00:12:50.665607 #14793] FATAL -- : 
+ActionView::Template::Error (undefined method `type' for #<Event:0x000000054790a0>):
+    32:           <td><%= event.all_day %></td>
+    33:           <td><%= event.repeating %></td>
+    34:           <!--<td><%#= event.url %></td>-->
+    35:           <td><%= event.type %></td>
+    36:           <td><%= link_to 'Edit', edit_event_path(event) %>
+    37:             | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+    38:           </td>
+  app/views/events/index.html.erb:35:in `block in _app_views_events_index_html_erb__2776584438036369342_44169620'
+  app/views/events/index.html.erb:24:in `_app_views_events_index_html_erb__2776584438036369342_44169620'
+
+

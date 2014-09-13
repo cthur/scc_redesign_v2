@@ -1,0 +1,113 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$padding: 1.2em;
+$scc_blue: #0058a8;
+
+@mixin h2_style($color: #fff) {
+  color: $color;
+  text-align: center;
+}
+
+#event_listing {
+  width: 90%;
+  margin: 20px auto;
+  padding: $padding;
+  background-color: #eee;
+  border-radius: 10px;
+  border: solid 1px #fc0;
+
+  h2 { @include h2_style(#000) }
+
+  .pagination {
+    a {
+      color: #000000;
+    }
+
+    .active a {
+      color: #ffffff;
+    }
+
+    .prev.disabled a {
+      color: #999999;
+    }
+
+    .next.disabled a {
+      color: #999999;
+    }
+  }
+}
+
+#event_directory {
+  thead tr {
+    :first-child {
+      border-top-left-radius: 10px;
+    }
+
+    :last-child {
+      border-top-right-radius: 10px;
+    }
+
+    th {
+      background-color: #0058a8;
+      color: #fff;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+
+  td {
+    a{
+      color: #000000;
+    }
+  }
+}
+
+#event_form {
+  background-color: $scc_blue;
+  width: 80%;
+  margin: 10px auto;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  box-shadow: 10px 10px 5px #888888;
+
+  h2 { @include h2_style() }
+
+  form {
+    width: 80%;
+    margin: 10px auto;
+    padding: $padding;
+    background-color: white;
+    border: solid 3px #fc0;
+
+    input, select {
+      border-color: #fc0;
+    }
+  }
+}
+
+.actions input {
+  width: 100%;
+}
+
+.field {
+  margin-bottom: $padding;
+}
+
+#event_page {
+  width: 80%;
+  margin: 20px auto;
+  padding: $padding;
+  background-color: #fff;
+  border: solid 10px $scc_blue;
+  text-align: center;
+}
+
+#event_description {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}

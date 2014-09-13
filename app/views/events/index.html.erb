@@ -1,0 +1,53 @@
+<div id="event_listing">
+
+  <h2>Events</h2>
+
+  <table id="event_directory" class="display" data-source="<%= events_url(format: "json") %>">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <!--<th>Start time</th>
+        <th>End time</th>-->
+        <th>Description</th>
+        <th>All day</th>
+        <th>Repeat</th>
+        <!--<th>Url</th>-->
+        <th>Type</th>
+        <th><%= link_to 'Add Event', new_event_path %></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event %></td>
+          <td><%= event.start_date %></td>
+          <td><%= event.end_date %></td>
+<!--          <td><%#= event.start_time %></td>
+          <td><%#= event.end_time %></td>-->
+          <td><%= event.description.truncate(100).html_safe %></td>
+          <td><%= event.all_day %></td>
+          <td><%= event.repeating %></td>
+          <!--<td><%#= event.url %></td>-->
+          <td><%= event.event_type %></td>
+          <td>
+            <% if user_signed_in? %>
+
+          <%= link_to 'Edit', edit_event_path(event) %>
+            | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Event', new_event_path %>
+
+</div>

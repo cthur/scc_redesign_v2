@@ -1,0 +1,32 @@
+<nav class="navbar navbar-custom-inverse navbar-static-bottom" role="navigation">
+  <div class="footer">
+    <address>
+      Spokane Community College
+      <br/>
+      1810 N. Greene St.
+      <br/>
+      Spokane, <abbr title="Washington">WA</abbr> 99217-5399
+    </address>
+    <ul>
+      <li><a href="http://www.iel.spokane.edu/">Institute for Extended Learning</a></li>
+      <li><a href="#">Spokane Community College</a></li>
+      <li><a href="http://www.spokanefalls.edu/">Spokane Falls Community College</a></li>
+      <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+      <% else %>
+          <li>
+            <%= link_to('Login', new_user_session_path)  %>
+          </li>
+      <% end %>
+    </ul>
+    <div class="footer_links">
+      <%= link_to 'Contact Us', 'http://www.scc.spokane.edu/?contactusage' %> |
+      <%= link_to 'Employment', 'http://www.ccs.spokane.edu/HR.aspx' %> |
+      <%= link_to 'Request Information', 'http://www.scc.spokane.edu/?inforeq' %> |
+      <%= link_to "Sitemap", sitemap_path %>
+</div>
+</div>
+
+</nav>

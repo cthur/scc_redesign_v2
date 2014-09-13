@@ -1,0 +1,10 @@
+I, [2014-02-27T00:07:57.427687 #14714]  INFO -- : listening on addr=127.0.0.1:8080 fd=10
+I, [2014-02-27T00:07:57.428081 #14714]  INFO -- : worker=0 spawning...
+I, [2014-02-27T00:07:57.428913 #14714]  INFO -- : worker=1 spawning...
+I, [2014-02-27T00:07:57.431141 #14714]  INFO -- : master process ready
+I, [2014-02-27T00:07:57.437179 #14717]  INFO -- : worker=0 spawned pid=14717
+I, [2014-02-27T00:07:57.445164 #14719]  INFO -- : worker=1 spawned pid=14719
+I, [2014-02-27T00:07:57.447870 #14717]  INFO -- : Refreshing Gem list
+I, [2014-02-27T00:07:57.456960 #14719]  INFO -- : Refreshing Gem list
+I, [2014-02-27T00:08:02.119902 #14719]  INFO -- : worker=1 ready
+I, [2014-02-27T00:08:02.122663 #14717]  INFO -- : worker=0 ready

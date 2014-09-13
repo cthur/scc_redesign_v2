@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="406046586">
+    <data-source source="LOCAL" name="Rails 3.9_2.05: development" uuid="19e272de-7460-41e0-af3e-60acd225b7eb">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Second\Desktop\agile_project\experiment\3.9_2.05\agile_scc_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails 3.9_2.05: test" uuid="1ef946c9-1056-4bf9-870e-0e25162c1930">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/agile_scc_test</jdbc-url>
+      <user-name>root</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails 3.9_2.05: production" uuid="dc7f14fb-23ef-4d98-b488-8faaa913e7e9">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Second\Desktop\agile_project\experiment\3.9_2.05\agile_scc_development</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

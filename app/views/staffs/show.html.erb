@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @staff.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @staff.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @staff.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @staff.email %>
+</p>
+
+<p>
+  <strong>Division:</strong>
+  <%= @staff.division %>
+</p>
+<% if user_signed_in? %>
+
+    <%= link_to 'Edit', edit_staff_path(@staff)  %> |
+    <% end %>
+
+ <%= link_to 'Back', staffs_path %>

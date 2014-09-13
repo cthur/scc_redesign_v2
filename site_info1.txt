@@ -1,0 +1,20 @@
+IP Address: 198.199.117.29
+Username: root
+Password: cxqnlszxgqvw
+
+
+bundle install --deployment
+
+#Compile the assets
+RAILS_ENV=production rake assets:precompile
+
+#Seed database
+RAILS_ENV=production rake db:seed
+
+#Migrate the database
+RAILS_ENV=production rake db:migrate
+
+chown -R rails:www-data /home/rails
+
+#restart the Unicorn server
+service unicorn restart
